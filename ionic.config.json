@@ -1,0 +1,7 @@
+{
+  "name": "okta-oauth2-tabs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
