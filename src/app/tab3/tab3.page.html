@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,29 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Profile</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card *ngIf="userInfo; else loading">
+    <ion-card-header>
+      {{userInfo.name}}
+    </ion-card-header>
+    <ion-card-content>
+      {{userInfo.preferred_username}}
+    </ion-card-content>
+  </ion-card>
+
+  <ng-template #loading>
+    <ion-card>
+      <ion-card-header>
+        <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+  <ion-button (click)="signOut()" color="danger" expand="block">Sign Out</ion-button>
 </ion-content>
